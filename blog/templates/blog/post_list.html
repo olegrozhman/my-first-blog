@@ -6,15 +6,12 @@
       <div>
             <h1><a href="/">Django Rozhok Blog</a></h1>
         </div>
-        <div>
-            <p>published: 28.03.2018, 03:35</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Я часть той силы, что вечно хочет зла, но совершает благо</p>
-        </div>
-        <div>
-            <p>published: 28.03.2018, 03:40</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Tertium non datur</p>
-        </div>
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date }}</p>
+                <h1><a href="">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>
